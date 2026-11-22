@@ -1,14 +1,15 @@
 {
+  "name": "leitner",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
   "scripts": {
-    "start": "servor --reload",
-    "sass": "sass --watch src/assets/styles/scss/main.scss:src/assets/styles/style.css",
-    "sass:build": "sass --style=compressed --no-source-map src/assets/styles/scss/main.scss:src/assets/styles/style.css"
-  },
-  "dependencies": {
-    "lucide": "^1.73.0",
-    "servor": "^4.0.2"
+    "dev": "bunx --bun vite",
+    "build": "vite build",
+    "preview": "vite preview"
   },
   "devDependencies": {
-    "sass": "^1.108.2"
+    "sass": "^1.108.2",
+    "vite": "^8.3.6"
   }
 }
