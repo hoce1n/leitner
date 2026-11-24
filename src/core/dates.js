@@ -1,9 +1,13 @@
+function pad2(input) {
+    return String(input).padStart(2, "0")
+}
+
 export function toDateString(date) {
     const year = date.getFullYear();
     const month = date.getMonth() + 1;
     const day = date.getDate();
 
-    return `${year}-${String(month).padStart(2, "0")}-${String(day).padStart(2, "0")}`
+    return `${year}-${pad2(month)}-${pad2(day)}`
 }
 
 
