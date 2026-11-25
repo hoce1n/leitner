@@ -36,13 +36,16 @@ export function renderCardForm(onSubmit) {
         createSection(labelBack, textareaBack),
         buttonEL
     );
+    const errorMsg = document.createElement("p")
 
     form.addEventListener("submit", (e) => {        
         e.preventDefault()
         try {
             onSubmit(textareaFront.value, textareaBack.value)
         } catch (error) {
-            alert(error);
+            errorMsg.className = "card-form__error"
+            errorMsg.textContent = error.message
+            form.appendChild(errorMsg);
         }
     })
 

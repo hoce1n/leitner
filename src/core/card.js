@@ -2,8 +2,11 @@ export function createCard(front, back, today) {
     const cleanFront = front.trim();
     const cleanBack = back.trim();
 
-    if (!cleanFront || !cleanBack) {
-        throw new Error("Card front and back must not be empty.");
+    if (!cleanFront) {
+        throw new Error("Card Front must not be empty.");
+    }
+    if (!cleanBack) {
+        throw new Error("Card Back must not be empty.");
     }
 
     return {

@@ -11,9 +11,8 @@ function render () {
     app.replaceChildren(renderCardList(state.cards), renderCardForm(onSubmit))
 }
 
-const today = toDateString(new Date());
-
 export function onSubmit(front, back) {
+    const today = toDateString(new Date());
     state.cards.push(createCard(front, back, today))
     render();
 }

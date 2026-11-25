@@ -8,7 +8,7 @@ export function renderCardList(cards) {
     }
 
     const list = document.createElement("ul")
-    list.className = "card-list__empty"
+    list.className = "card-list"
 
     for (const card of cards) {
         const item = document.createElement("li")
