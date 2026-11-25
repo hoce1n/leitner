@@ -1,0 +1,29 @@
+@use "variables" as v;
+
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: v.$font-base;
+    line-height: 1.6;
+    color: v.$color-text;
+    background: v.$color-bg;
+}
+
+// form controls don't inherit the font by default
+button,
+textarea {
+    font: inherit;
+}
+
+#app {
+    display: grid;
+    gap: v.$space-4;
+    max-inline-size: v.$container-width;
+    margin-inline: auto;
+    padding: v.$space-4;
+}

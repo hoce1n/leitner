@@ -1,4 +1,3 @@
-import './style.css'
 import './assets/scss/main.scss'
 import { state } from './core/state.js';
 import { createCard } from './core/card.js';
@@ -9,7 +8,7 @@ import { renderCardForm } from './components/cardForm.js';
 const app = document.querySelector('#app');
 
 function render () {
-    app.replaceChildren(renderCardList(state.cards), renderCardForm())
+    app.replaceChildren(renderCardList(state.cards), renderCardForm(onSubmit))
 }
 
 const today = toDateString(new Date());

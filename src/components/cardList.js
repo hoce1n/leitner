@@ -3,6 +3,8 @@ export function renderCardList(cards) {
         const empty = document.createElement("p")
         empty.className = "card-list__empty"
         empty.textContent = "there is no context to see"
+
+        return empty;
     }
 
     const list = document.createElement("ul")

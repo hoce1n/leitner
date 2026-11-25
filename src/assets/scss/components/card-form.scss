@@ -1,0 +1,67 @@
+@use "../variables" as v;
+
+.card-form {
+    display: grid;
+    gap: v.$space-3;
+    padding: v.$space-4;
+    background: v.$color-surface;
+    border: 1px solid v.$color-border;
+    border-radius: v.$radius;
+
+    // wrapper around one label + one textarea
+    &__field {
+        display: grid;
+        gap: v.$space-1;
+    }
+
+    &__label {
+        font-size: 0.875rem;
+        font-weight: 600;
+    }
+
+    &__front,
+    &__back {
+        min-block-size: 6rem;
+        padding: v.$space-2 v.$space-3;
+        color: inherit;
+        background: v.$color-surface;
+        border: 1px solid v.$color-border;
+        border-radius: v.$radius;
+        resize: vertical;
+
+        &:focus-visible {
+            outline: 2px solid v.$color-primary;
+            outline-offset: 1px;
+        }
+    }
+
+    &__submit {
+        justify-self: start;
+        padding: v.$space-2 v.$space-4;
+        color: v.$color-on-primary;
+        background: v.$color-primary;
+        border: 0;
+        border-radius: v.$radius;
+        cursor: pointer;
+
+        &:hover {
+            background: v.$color-primary-hover;
+        }
+
+        &:focus-visible {
+            outline: 2px solid v.$color-primary;
+            outline-offset: 2px;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__error {
+        margin: 0;
+        font-size: 0.875rem;
+        color: v.$color-danger;
+    }
+}

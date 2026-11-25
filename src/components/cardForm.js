@@ -1,15 +1,15 @@
-import { onSubmit } from "../main.js";
 import { button } from "./ui/button.js";
 import { label } from "./ui/label.js";
 import { textarea } from "./ui/textarea.js";
 
 const createSection = (...children) => {
     const section = document.createElement("section")
+    section.className = "card-form__field"
     section.append(...children)
     return section
 }
 
-export function renderCardForm() {
+export function renderCardForm(onSubmit) {
     const form = document.createElement("form")
     form.className = "card-form"
     
@@ -39,7 +39,11 @@ export function renderCardForm() {
 
     form.addEventListener("submit", (e) => {        
         e.preventDefault()
-        onSubmit(textareaFront.value, textareaBack.value)
+        try {
+            onSubmit(textareaFront.value, textareaBack.value)
+        } catch (error) {
+            alert(error);
+        }
     })
 
     return form
