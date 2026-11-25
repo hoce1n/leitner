@@ -1,4 +1,4 @@
-import { addDays } from "./dates";
+import { addDays } from "./dates.js";
 
 export function getDueCards(cards, today) {
     return cards.filter(card => card.dueDate <= today)

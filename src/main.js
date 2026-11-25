@@ -1,10 +1,10 @@
 import './style.css'
 import './assets/scss/main.scss'
-import { state } from './core/state';
-import { createCard } from './core/card';
-import { toDateString } from './core/dates';
-import { renderCardList } from './components/cardList';
-import { renderCardForm } from './components/cardForm';
+import { state } from './core/state.js';
+import { createCard } from './core/card.js';
+import { toDateString } from './core/dates.js';
+import { renderCardList } from './components/cardList.js';
+import { renderCardForm } from './components/cardForm.js';
 
 const app = document.querySelector('#app');
 
@@ -13,7 +13,10 @@ function render () {
 }
 
 const today = toDateString(new Date());
-state.cards.push(createCard("2 + 2 ؟", "4", today))
-state.cards.push(createCard("<img src=x onerror=alert('XSS')>", "کارت خطرناک", today))
+
+export function onSubmit(front, back) {
+    state.cards.push(createCard(front, back, today))
+    render();
+}
 
 render();
