@@ -17,3 +17,8 @@ export function createCard(front, back, today) {
         dueDate: today
     }
 }
+
+export function removeCard(cards, id) {
+    const remainingCards = cards.filter(card => card.id !== id)
+    return remainingCards
+}
