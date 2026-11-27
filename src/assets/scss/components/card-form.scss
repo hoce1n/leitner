@@ -8,7 +8,6 @@
     border: 1px solid v.$color-border;
     border-radius: v.$radius;
 
-    // wrapper around one label + one textarea
     &__field {
         display: grid;
         gap: v.$space-1;
