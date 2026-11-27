@@ -23,3 +23,4 @@ dist-ssr
 *.sln
 *.sw?
 src/core/scratch.js
+src/core/mockCards.js
