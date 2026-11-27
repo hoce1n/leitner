@@ -34,8 +34,12 @@
         }
     }
 
+    &__actions {
+        display: flex;
+        gap: v.$space-2;
+    }
+
     &__submit {
-        justify-self: start;
         padding: v.$space-2 v.$space-4;
         color: v.$color-on-primary;
         background: v.$color-primary;
@@ -49,6 +53,29 @@
 
         &:focus-visible {
             outline: 2px solid v.$color-primary;
+            outline-offset: 2px;
+        }
+
+        &:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+    }
+
+    &__cancel {
+        padding: v.$space-2 v.$space-4;
+        color: v.$color-on-primary;
+        background: v.$color-danger;
+        border: 0;
+        border-radius: v.$radius;
+        cursor: pointer;
+
+        &:hover {
+            background: v.$color-danger-hover;
+        }
+
+        &:focus-visible {
+            outline: 2px solid v.$color-danger;
             outline-offset: 2px;
         }
 
