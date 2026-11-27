@@ -17,13 +17,18 @@
         border-radius: v.$radius;
     }
 
-    &__trash {
+    &__actions {
         position: absolute;
         right: 20px;
         top: 35%;
         background-color: #fff;
+
+    }
+
+    &__action {
         border: 0;
         cursor: pointer;
+        background-color: transparent;
     }
 
     &__front {

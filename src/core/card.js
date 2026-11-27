@@ -1,4 +1,4 @@
-export function createCard(front, back, today) {
+function parseCardText(front, back) {    
     const cleanFront = front.trim();
     const cleanBack = back.trim();
 
@@ -9,16 +9,28 @@ export function createCard(front, back, today) {
         throw new Error("Card Back must not be empty.");
     }
 
+    return { front: cleanFront, back: cleanBack }
+}
+
+export function createCard(front, back, today) {
+    const text = parseCardText(front, back)
+
     return {
         id: crypto.randomUUID(),
-        front: cleanFront,
-        back: cleanBack,
+        ...text,
         box: 1,
         dueDate: today
     }
-}
+} 
 
 export function removeCard(cards, id) {
-    const remainingCards = cards.filter(card => card.id !== id)
-    return remainingCards
+    return cards.filter(card => card.id !== id)
+}
+
+export function updateCard(cards, id, front, back) {
+    const text = parseCardText(front, back)
+
+    return cards.map(card =>
+        card.id === id ? { ...card, ...text } : card
+    )
 }

@@ -9,20 +9,25 @@ const app = document.querySelector('#app');
 
 function render () {
     app.replaceChildren(
-        renderCardList(state.cards, onRemove), 
+        renderCardList(state.cards, onRemove, onEditStart), 
         renderCardForm(onSubmit)
     )
 }
 
-export function onSubmit(front, back) {
+function onSubmit(front, back) {
     const today = toDateString(new Date());
     state.cards.push(createCard(front, back, today))
     render();
 }
 
-export function onRemove(id) {
+function onRemove(id) {
     state.cards = removeCard(state.cards, id);
     render();
+}
+
+function onEditStart(id) {
+    state.editingCardId = id;
+    render()
 }
 
 render();
