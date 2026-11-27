@@ -11,7 +11,7 @@ export function button(
     const el = document.createElement("button");
 
     el.textContent = inner
-    el.className = `${BASE_CLASSES} ${className}`
+    el.className = [BASE_CLASSES, className].filter(Boolean).join(" ")
     el.type = type
     Object.assign(el.dataset, dataset)
 

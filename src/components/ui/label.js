@@ -1,3 +1,5 @@
+const BASE_CLASSES = ""
+
 export function label(
     inner,
     {
@@ -9,7 +11,7 @@ export function label(
     const el = document.createElement("label")
     el.textContent = inner
     el.htmlFor = name
-    el.className = className
+    el.className = [BASE_CLASSES, className].filter(Boolean).join(" ")
     Object.assign(el.dataset, dataset)
 
     return el

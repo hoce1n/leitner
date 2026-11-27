@@ -10,7 +10,7 @@ export function textarea(
     } = {}
 ) {
     const el = document.createElement("textarea")
-    el.className = `${BASE_CLASSES} ${className}`
+    el.className = [BASE_CLASSES, className].filter(Boolean).join(" ")
     el.value = inner
     el.id = id
     el.name = name
