@@ -1,4 +1,4 @@
-import { button } from "./ui/button.js";
+import { button, TYPE } from "./ui/button.js";
 import { label } from "./ui/label.js";
 import { textarea } from "./ui/textarea.js";
 
@@ -9,32 +9,46 @@ const createSection = (...children) => {
     return section
 }
 
-export function renderCardForm(onSubmit) {
+export function renderCardForm(onSubmit, onCancel, editingCard) {
     const form = document.createElement("form")
     form.className = "card-form"
     
     const labelFront = label("front", { name: "front" })
-    const textareaFront = textarea("", { 
+    const textareaFront = textarea(editingCard?.front ? editingCard.front : "", { 
         id: "front", 
         name: "front", 
-        className: "card-form__front" 
+        className: "card-form__front"
     })
-
+    
     const labelBack = label("back", { name: "back" })
-    const textareaBack = textarea("", { 
+    const textareaBack = textarea(editingCard?.back ? editingCard.back : null, { 
         id: "back", 
         name: "back", 
         className: "card-form__back" 
     })
-
-    const buttonEL = button(
-        "Submit", { type: "submit", className: "card-form__submit" }
+    
+    const actions = document.createElement("div")
+    actions.className = "card-form__actions"
+    
+    const submitBut = button(
+        editingCard ? "Update" : "Submit", { type: TYPE.SUBMIT, className: "card-form__submit" }
     )
+
+    actions.append(submitBut)
+
+    if (editingCard) {
+        const cancelBut = button(
+            "Cancel", { type: TYPE.BUTTON, className: "card-form__cancel"}
+        )
+        cancelBut.addEventListener("click", onCancel)
+        actions.append(cancelBut)
+    }
+
 
     form.append(
         createSection(labelFront, textareaFront),
         createSection(labelBack, textareaBack),
-        buttonEL
+        actions
     );
     const errorMsg = document.createElement("p")
 
@@ -48,6 +62,5 @@ export function renderCardForm(onSubmit) {
             form.appendChild(errorMsg);
         }
     })
-
     return form
 }

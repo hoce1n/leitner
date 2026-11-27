@@ -10,10 +10,8 @@ export function toDateString(date) {
     return `${year}-${pad2(month)}-${pad2(day)}`
 }
 
-
 export function addDays(dateString, n) {
     const split = dateString.split("-");
     const mapped = split.map(item => Number(item));
     return toDateString(new Date(mapped[0], mapped[1] - 1, mapped[2] + n))
 }
-

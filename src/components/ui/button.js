@@ -1,10 +1,15 @@
 const BASE_CLASSES = ""
+export const TYPE = {
+    SUBMIT: "submit",
+    BUTTON: "button",
+    RESET: "reset"
+}
 
 export function button(
     inner = "",
     {
         className = "",
-        type = "button",
+        type = TYPE.BUTTON,
         dataset = {}
     } = {}
 ) {

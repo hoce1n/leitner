@@ -19,6 +19,7 @@ export function renderCardList(cards, onRemove, onEditStart) {
 
         const actions = document.createElement("div");
         actions.className = "card-list__actions"
+        
 
         const trash = document.createElement("button")
         trash.className = "card-list__action card-list__action--trash"
